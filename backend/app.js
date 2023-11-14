@@ -22,6 +22,10 @@ const {
   MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb',
 } = process.env;
 
+mongoose.connect(`${MONGO_URL}`, {
+  useNewUrlParser: true,
+}).then(() => console.log('DB CONNECT'));
+
 const app = express();
 
 app.use(cors());
@@ -71,14 +75,6 @@ app.use(errors());
 
 app.use(errorHandler);
 
-async function init() {
-  await mongoose.connect(MONGO_URL, {
-    useNewUrlParser: true,
-  });
-  console.log('DB CONNECT');
-
-  await app.listen(PORT);
-  console.log(`Server listen port ${PORT}`);
-}
-
-init();
+app.listen(PORT, () => {
+  console.log(`Server listen on port ${PORT}`);
+});
