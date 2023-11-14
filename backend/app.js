@@ -43,11 +43,13 @@ app.use(helmet());
 app.use(requestLogger);
 
 // роут для краш-тест сервера (необходимо удалить)
+/*
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
+*/
 
 app.post('/signup', celebrate({
   [Segments.BODY]: Joi.object().keys({
