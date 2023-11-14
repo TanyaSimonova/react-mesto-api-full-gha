@@ -1,0 +1,20 @@
+.popup-focus__image {
+  height: 540px;
+  width: 860px;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media screen and (max-width: 900px) {
+  .popup-focus__image  {
+    width: 433px;
+    height: 540px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .popup-focus__image  {
+    width: 240px;
+    height: 299px;
+  }
+}

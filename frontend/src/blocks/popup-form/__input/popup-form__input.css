@@ -1,0 +1,30 @@
+.popup-form__input {
+  padding: 54px 0 4px;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  font-family: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #000000;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  outline: none;
+  width: 358px;
+}
+
+@media screen and (max-width: 900px) {
+  .popup-form__input {
+    width: 238px;
+    padding-top: 75px;
+  }
+}
+
+.popup-form__input:nth-of-type(2) {
+  padding-top: 7px;
+}

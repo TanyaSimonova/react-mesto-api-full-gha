@@ -1,0 +1,16 @@
+.popup-form__subtitle {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.21;
+  color: #000000;
+  padding: 0 25px 60px;
+  margin: 0;
+  text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+  .popup-form__subtitle {
+    padding: 0 25px 50px;
+    font-size: 20px;
+  }
+}

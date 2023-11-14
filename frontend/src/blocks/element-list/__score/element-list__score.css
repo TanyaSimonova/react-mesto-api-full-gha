@@ -1,0 +1,8 @@
+.element-list__score {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.23;
+  position: absolute;
+  top: 22px;
+  left: 7px;
+}

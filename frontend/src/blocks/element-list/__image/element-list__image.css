@@ -1,0 +1,11 @@
+.element-list__image {
+  grid-area: image;
+  grid-column: span 2;
+  width: 282px;
+  height: 282px;
+  object-fit: cover;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+}

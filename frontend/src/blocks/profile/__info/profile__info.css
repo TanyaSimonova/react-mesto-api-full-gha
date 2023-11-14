@@ -1,0 +1,27 @@
+.profile__info {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: minmax(312px, 100%) minmax(24px, 100%);
+  grid-template-areas:
+    "title button"
+    "subtitle button";
+}
+
+@media screen and (max-width: 900px) {
+  .profile__info {
+    margin: 0 auto;
+    grid-template-columns: minmax(264px, 100%) minmax(18px, 100%);
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .profile__info {
+    grid-template-columns: minmax(220px, 100%) minmax(18px, 100%);
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__info {
+    grid-template-columns: minmax(190px, 100%) minmax(18px, 100%);
+  }
+}

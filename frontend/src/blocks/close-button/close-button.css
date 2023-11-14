@@ -1,0 +1,33 @@
+.close-button {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  padding: 0;
+  margin: 0 auto;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: initial;
+  font-family: inherit;
+  color: inherit;
+  background-image: url('../../images/closeicon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 32px;
+  height: 32px;
+}
+
+.close-button:hover {
+  opacity: .6;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+  .close-button {
+    width: 20px;
+    height: 20px;
+    right: 0;
+    font-weight: normal;
+  }
+}

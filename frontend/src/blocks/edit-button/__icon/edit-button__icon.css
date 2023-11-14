@@ -1,0 +1,18 @@
+.edit-button__icon {
+  background-image: url('../../../images/VectorPencil.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  width: 10px;
+  height: 10px;
+  color: #FFFFFF;
+  display: block;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 900px) {
+  .edit-button__icon {
+    width: 7.5px;
+    height: 7.5px;
+  }
+}

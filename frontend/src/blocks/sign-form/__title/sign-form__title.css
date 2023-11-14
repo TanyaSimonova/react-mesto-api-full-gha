@@ -1,0 +1,14 @@
+.sign-form__title {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.21;
+  margin: 60px 0 0;
+  color: inherit;
+}
+
+@media screen and (max-width: 900px){
+  .sign-form__title {
+    font-size: 20px;
+    margin: 40px 0 0;
+  }
+}

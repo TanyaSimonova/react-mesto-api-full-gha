@@ -1,0 +1,19 @@
+.element-list__icon {
+  grid-area: icon;
+  justify-self: end;
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background-color: inherit;
+  background-image: url('../../../images/Vectorheart.svg');
+  background-repeat: no-repeat;
+  height: 19px;
+  width: 22px;
+  margin-right: 20px;
+  position: relative;
+}
+
+.element-list__icon:hover {
+  opacity: .5;
+  cursor: pointer;
+}

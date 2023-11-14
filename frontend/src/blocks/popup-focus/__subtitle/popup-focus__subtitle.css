@@ -1,0 +1,9 @@
+.popup-focus__subtitle {
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.25;
+  align-self: flex-start;
+  padding-top: 10px;
+}

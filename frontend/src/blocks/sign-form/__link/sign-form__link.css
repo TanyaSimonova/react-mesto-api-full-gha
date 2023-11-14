@@ -1,0 +1,19 @@
+.sign-form__link {
+  text-decoration: none;
+  color: #FFFFFF;
+  margin: 15px 0 0;
+  font-size: 14px;
+  line-height: 1.21;
+  font-weight: 400;
+}
+
+.sign-form__link:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 900px){
+  .sign-form__link {
+    margin: 20px 0 0;
+  }
+}

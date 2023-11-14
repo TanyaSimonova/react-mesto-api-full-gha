@@ -1,0 +1,32 @@
+.profile__speciality {
+  grid-area: subtitle;
+  margin: 0;
+  font-weight: 400;
+  font-size: calc(14px + 4*(100vw - 320px)/(1280 - 320));
+  line-height: 1.37;
+  padding-top: 4px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 312px;
+}
+
+@media screen and (max-width: 900px) {
+  .profile__speciality {
+    text-align: center;
+    padding: 8px 0 31px;
+    max-width: 264px;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .profile__speciality {
+    max-width: 220px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__speciality {
+    max-width: 190px;
+  }
+}

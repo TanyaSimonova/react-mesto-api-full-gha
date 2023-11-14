@@ -1,0 +1,16 @@
+.element-list__item {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  background: #FFFFFF;
+  color: #000000;
+  border-radius: 10px;
+  overflow:hidden;
+  display: grid;
+  grid-template-areas:
+    "image image"
+    "title icon";
+  align-items: center;
+  position: relative;
+}
