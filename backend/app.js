@@ -6,6 +6,7 @@ const cors = require('cors');
 const {
   celebrate, Joi, errors, Segments,
 } = require('celebrate');
+const bodyParser = require('body-parser');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 // const limiter = require('./middlewares/limiter');
 const NotFound = require('./errors/NotFound');
@@ -37,6 +38,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(bodyParser.json());
+
 // app.use(limiter);
 app.use(helmet());
 
@@ -50,7 +53,6 @@ app.get('/crash-test', () => {
   }, 0);
 });
 */
-
 app.post('/signup', celebrate({
   [Segments.BODY]: Joi.object().keys({
     email: Joi.string().email().required(),
