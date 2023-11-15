@@ -49,7 +49,7 @@ export const Register = ({ onRegister }) => {
       >
         Зарегистрироваться
       </button>
-      <Link to="/sign-in" className="sign-form__link">
+      <Link to="/signin" className="sign-form__link">
         Уже зарегистрированы? Войти
       </Link>
     </form>
