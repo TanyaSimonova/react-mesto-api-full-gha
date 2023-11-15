@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.109.124
+IP 51.250.109.124
 
 Frontend https://mesto.pnk.nomoredomainsmonster.ru
 
