@@ -64,7 +64,7 @@ function App() {
         console.log(res)
         setIsInfoTooltipOpen(true);
         setIsInfoTooltipValid(true);
-        navigate("/sign-in", { replace: true });
+        navigate("/signin", { replace: true });
       })
       .catch((error) => {
         console.log(`Ошибка при регистрации пользователя ${error}`);
@@ -247,9 +247,9 @@ function App() {
               </ProtectedRouteElement>
             }
           />
-          <Route path="/sign-in" element={<Login onLogin={handleLogin} />} />
+          <Route path="/signin" element={<Login onLogin={handleLogin} />} />
           <Route
-            path="/sign-up"
+            path="/signup"
             element={<Register onRegister={handleRegister} />}
           />
         </Routes>

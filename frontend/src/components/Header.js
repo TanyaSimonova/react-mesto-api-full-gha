@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 const Header = (userData) => {
   const location = useLocation();
 
-  const isSignUp = location.pathname === "/sign-up";
+  const isSignUp = location.pathname === "/signup";
   const isLogged = location.pathname === "/";
 
   function signOut() {
@@ -29,19 +29,19 @@ const Header = (userData) => {
         {(() => {
           if (isLogged) {
             return (
-              <Link className="header__button" onClick={signOut} to="/sign-in">
+              <Link className="header__button" onClick={signOut} to="/signin">
                 Выйти
               </Link>
             );
           } else if (isSignUp) {
             return (
-              <Link className="header__button" to="/sign-in">
+              <Link className="header__button" to="/signin">
                 Войти
               </Link>
             );
           } else {
             return (
-              <Link className="header__button" to="/sign-up">
+              <Link className="header__button" to="/signup">
                 Регистрация
               </Link>
             );
