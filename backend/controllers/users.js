@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+
+const { JWT_SECRET, NODE_ENV } = process.env;
 const userModel = require('../models/user');
 const NotAuthenticated = require('../errors/NotAuthenticated');
 const NotFound = require('../errors/NotFound');
@@ -62,7 +64,7 @@ const login = async (req, res, next) => {
     if (!matched) {
       throw new NotAuthenticated('Incorrect email or password');
     }
-    const token = jwt.sign({ _id: user._id }, 'jwt-secret-key', { expiresIn: '7d' });
+    const token = jwt.sign({ _id: user._id }, NODE_ENV ? JWT_SECRET : 'jwt-secret-key', { expiresIn: '7d' });
     return res.status(200).send({ token });
   } catch (e) {
     if (e instanceof mongoose.Error.ValidationError || e instanceof mongoose.Error.CastError) {
