@@ -53,7 +53,11 @@ function App() {
             navigate("/", { replace: true });
           }
         })
-        .catch((error) => console.log(`Ошибка при проверке токена ${error}`));
+        .catch((error) => {
+          console.log(`Ошибка при проверке токена ${error}`);
+          setLoggedIn(false);
+          navigate("/signin", { replace: true });
+        });
     }
   };
 
@@ -100,10 +104,9 @@ function App() {
           console.log(
             `Ошибка при загрузке данных пользователя и карточек ${error}`,
           );
-          navigate("/signin", { replace: true });
-          });
-        }
-    }, [loggedIn, navigate]);
+        });
+    }
+    }, [loggedIn]);
 
   function handleCardLike(card) {
     const isLiked = card.likes.includes((currentUser._id))
