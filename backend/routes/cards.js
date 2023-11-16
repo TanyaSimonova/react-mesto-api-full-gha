@@ -20,6 +20,7 @@ router.delete('/cards/:cardId', celebrate({
   }).unknown(true),
   [Segments.PARAMS]: Joi.object().keys({
     cardId: Joi.string().alphanum().min(24).max(24)
+      .hex()
       .required(),
   }),
 }), deleteCardById);
@@ -36,6 +37,7 @@ router.put('/cards/:cardId/likes', celebrate({
   }).unknown(true),
   [Segments.PARAMS]: Joi.object().keys({
     cardId: Joi.string().min(24).max(24).alphanum()
+      .hex()
       .required(),
   }),
 }), likeCard);
@@ -46,6 +48,7 @@ router.delete('/cards/:cardId/likes', celebrate({
   }).unknown(true),
   [Segments.PARAMS]: Joi.object().keys({
     cardId: Joi.string().alphanum().min(24).max(24)
+      .hex()
       .required(),
   }),
 }), dislikeCard);

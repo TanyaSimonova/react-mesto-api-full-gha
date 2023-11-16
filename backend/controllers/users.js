@@ -12,13 +12,8 @@ const NoDuplicate = require('../errors/NoDuplicate');
 const SALT_ROUNDS = 10;
 
 const getUsers = (req, res, next) => userModel.find({})
-  .then((users) => {
-    if (!users) {
-      throw new NotFound('Users not found');
-    }
-    return res.status(200).send(users);
-  })
-  .catch(next);
+  .then((users) => res.status(200).send(users))
+  .catch((e) => next(e));
 
 const getUserById = (req, res, next) => {
   const { userId } = req.params;
@@ -67,9 +62,6 @@ const login = async (req, res, next) => {
     const token = jwt.sign({ _id: user._id }, NODE_ENV ? JWT_SECRET : 'jwt-secret-key', { expiresIn: '7d' });
     return res.status(200).send({ token });
   } catch (e) {
-    if (e instanceof mongoose.Error.ValidationError || e instanceof mongoose.Error.CastError) {
-      return next(new NotValid('Field validation error'));
-    }
     return next(e);
   }
 };
@@ -77,12 +69,7 @@ const login = async (req, res, next) => {
 const getProfile = (req, res, next) => userModel.findOne({ _id: req.user._id })
   .orFail(new NotFound('User not found'))
   .then((r) => res.status(200).send(r))
-  .catch((e) => {
-    if (e instanceof mongoose.Error.CastError) {
-      return next(new NotValid('Invalid data'));
-    }
-    return next(e);
-  });
+  .catch((e) => next(e));
 
 const updateUserProfile = (req, res, next) => {
   const { name, about } = req.body;

@@ -69,6 +69,7 @@ function App() {
       .catch((error) => {
         console.log(`Ошибка при регистрации пользователя ${error}`);
         setIsInfoTooltipOpen(true);
+        setIsInfoTooltipValid(false);
       });
   };
 
@@ -88,20 +89,21 @@ function App() {
       });
    };
 
-   useEffect(() => {
+  useEffect(() => {
     if (loggedIn) {
       Promise.all([api.getItems(), api.getUser()])
         .then(([cards, currentUser]) => {
           setCards(cards);
           setCurrentUser(currentUser);
         })
-        .catch((error) =>
+        .catch((error) => {
           console.log(
             `Ошибка при загрузке данных пользователя и карточек ${error}`,
-          ),
-        );
-    }
-  }, [loggedIn]);
+          );
+          navigate("/signin", { replace: true });
+          });
+        }
+    }, [loggedIn, navigate]);
 
   function handleCardLike(card) {
     const isLiked = card.likes.includes((currentUser._id))

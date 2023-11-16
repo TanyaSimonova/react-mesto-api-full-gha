@@ -8,9 +8,7 @@ const createCard = (req, res, next) => {
   const { name, link } = req.body;
   return cardModel.create({ name, link, owner: req.user._id })
     .then((card) => {
-      cardModel.findById(card._id)
-        .populate('owner')
-        .then((data) => res.status(201).send(data));
+      res.status(201).send(card);
     })
     .catch((e) => {
       if (e instanceof mongoose.Error.ValidationError) {

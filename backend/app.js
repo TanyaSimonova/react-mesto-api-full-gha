@@ -6,7 +6,6 @@ const cors = require('cors');
 const {
   celebrate, Joi, errors, Segments,
 } = require('celebrate');
-const bodyParser = require('body-parser');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 // const limiter = require('./middlewares/limiter');
 const NotFound = require('./errors/NotFound');
@@ -32,15 +31,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(bodyParser.json());
-
 // app.use(limiter);
 app.use(helmet());
 
 app.use(requestLogger);
 
 // роут для краш-тест сервера (необходимо удалить)
-
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
@@ -50,7 +46,7 @@ app.get('/crash-test', () => {
 app.post('/signup', celebrate({
   [Segments.BODY]: Joi.object().keys({
     email: Joi.string().email().required(),
-    password: Joi.string().min(8).required(),
+    password: Joi.string().min().required(),
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2).max(30),
     avatar: Joi.string().pattern(REGEX_URL),
@@ -60,16 +56,16 @@ app.post('/signup', celebrate({
 app.post('/signin', celebrate({
   [Segments.BODY]: Joi.object().keys({
     email: Joi.string().email().required(),
-    password: Joi.string().min(8).required(),
+    password: Joi.string().min().required(),
   }),
 }), login);
 
 app.use(auth);
 app.use(cardRouter);
 app.use(userRouter);
-app.use(errorLogger);
-
 app.use('*', (req, res, next) => next(new NotFound('Page not found')));
+
+app.use(errorLogger);
 
 app.use(errors());
 
